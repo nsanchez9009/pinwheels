@@ -5,17 +5,17 @@ Edit the files, push, and GitHub Pages redeploys in about a minute.
 
 ```
 index.html      the whole page
-style.css       all the styling (colors are variables at the top)
-assets/         font, images, favicon
+style.css       all the styling
+assets/         font, portrait, star SVGs, favicon
 ```
 
 ## Editing
 
-**Links (Spotify / Apple / SoundCloud / IG)**: the first `<table class="nav">` in `index.html`.
+**Links (Spotify / Apple / SoundCloud / IG)**: the `<p class="nav">` block in `index.html`.
 
-**Adding a track**: in `<table class="tracks">`, copy one `<tr> ... </tr>` block and paste it
-above the others. Change the title, the year, the link, and the track id in the iframe
-`src` (`api.soundcloud.com%2Ftracks%2F**2393258067**`).
+**Adding a track**: copy one `<div class="track"> ... </div>` block and paste it above the
+others. Change the title, the link, and the track id in the iframe `src`
+(`api.soundcloud.com%2Ftracks%2F**2393258067**`).
 
 To get a track id, open this in a browser and copy the number after `tracks/`:
 
@@ -25,8 +25,10 @@ https://soundcloud.com/oembed?format=json&url=https://soundcloud.com/pinwheelsmu
 
 **Colors**: `style.css`. Link color is `#9765d0`, search and replace it.
 
-**Images**: drop replacements into `assets/` with the same file names
-(`irithyll.jpg` 1920×1080, `irithyll-960.jpg` 960×540, `portrait.jpg` 800×800).
+**Portrait**: replace `assets/portrait.jpg` (square, 800×800).
+
+**Star dividers / frame**: `assets/stars-rule.svg` and `assets/stars-frame.svg`. The star
+shapes are the ✵ ✶ ✷ glyphs from DejaVu Sans traced to paths, with a chrome gradient.
 
 ## Deploying (GitHub Pages)
 

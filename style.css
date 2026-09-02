@@ -1,6 +1,7 @@
-/* PINWHEELS. Black page, Times New Roman, one column.
-   All text is chrome: a banded metal gradient clipped to the letters,
-   with a light/dark 1px offset under it for the emboss. */
+/* PINWHEELS. Black page, Times New Roman, one column, no boxes.
+   Text is chrome: a metal gradient with a hard horizon line clipped to the
+   letters, and a 1px light/dark offset under it for the emboss.
+   Sections are divided by rows of pinwheel stars (assets/stars-rule.svg). */
 
 @font-face {
   font-family: "OptimusPrinceps";
@@ -14,95 +15,77 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   line-height: 1.3;
-  max-width: 720px;
-  margin: 40px auto 80px;
+  max-width: 640px;
+  margin: 48px auto 80px;
   padding: 0 16px;
   text-align: center;
   color: #d9dde6;
 }
 
-/* silver: repeats every 26px so every line of text gets the banding */
-p, th, td, .silver {
+/* ---- chrome ---- */
+/* silver, one full sweep per element (headings, stars) */
+.chrome, .wordmark, .stars .silver, .foot, .nav span {
+  color: transparent;
+  background: linear-gradient(180deg,
+    #ffffff 0%, #cfd5df 35%, #6b7280 49%, #2a2e36 50%, #e8ebf0 52%, #9aa1ad 75%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* silver, repeating every line (running text) */
+p, .silver-lines {
   color: transparent;
   background: repeating-linear-gradient(180deg,
     #ffffff 0px, #d9dde6 5px, #7c8290 11px, #f6f7fa 13px, #a3a8b3 19px, #ffffff 26px);
   -webkit-background-clip: text;
   background-clip: text;
 }
-
-/* the emboss */
-h1, table, p, .frame, .stars span {
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.55)) drop-shadow(0 -1px 0 rgba(0,0,0,0.9));
-}
-
-/* purple chrome for links */
-a {
+/* purple, one sweep */
+a, .stars .purple {
   color: transparent;
-  background: repeating-linear-gradient(180deg,
-    #f1e6ff 0px, #c9a6ff 5px, #5b3a86 11px, #e5d2ff 13px, #9765d0 19px, #f1e6ff 26px);
+  background: linear-gradient(180deg,
+    #f3eaff 0%, #c9a6ff 35%, #6d4aa0 49%, #2b1a45 50%, #e5d2ff 52%, #9765d0 75%, #f3eaff 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  text-decoration: underline;
-  text-decoration-color: #9765d0;
 }
+a { text-decoration: underline; text-decoration-color: #9765d0; }
 a:hover { text-decoration-color: #fff; }
+
+/* the emboss */
+h1, p, .stars span, .portrait {
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.7)) drop-shadow(0 -1px 0 rgba(0,0,0,0.95));
+}
 
 .wordmark {
   font-family: "OptimusPrinceps", "Times New Roman", serif;
   font-weight: normal;
-  font-size: 96px;
+  font-size: 104px;
   line-height: 1;
-  margin: 0 0 8px;
+  margin: 0 0 24px;
   letter-spacing: 0.04em;
-  background: linear-gradient(180deg,
-    #ffffff 0%, #e6e9f0 22%, #808693 46%, #fbfbfd 50%, #9aa0ac 68%, #dfe3ea 84%, #ffffff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  /* glintstone */
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.9))
-          drop-shadow(0 0 22px rgba(96,140,255,0.45));
+  /* emboss + glintstone glow */
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.75)) drop-shadow(0 -1px 0 rgba(0,0,0,0.95))
+          drop-shadow(0 0 26px rgba(96,140,255,0.5));
 }
 
-/* pinwheel stars sliding across the whole screen, behind everything */
-.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
-.stars span {
-  position: absolute;
-  left: -60px;
-  line-height: 1;
-  animation: slide linear infinite;
+/* ---- star rules instead of lines ---- */
+hr {
+  border: 0;
+  height: 22px;
+  margin: 28px auto;
+  background: url("assets/stars-rule.svg") repeat-x center / auto 22px;
 }
-.stars .purple {
-  color: transparent;
-  background: repeating-linear-gradient(180deg,
-    #f1e6ff 0px, #c9a6ff 5px, #5b3a86 11px, #e5d2ff 13px, #9765d0 19px, #f1e6ff 26px);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-@keyframes slide {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(100vw + 120px)); }
-}
-@media (prefers-reduced-motion: reduce) { .stars span { animation: none; left: auto; right: auto; } }
 
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 3px ridge #c4c9d3;
-  margin: 0 0 40px;
-  font-size: 16px;
-}
-td, th { border: 2px ridge #c4c9d3; vertical-align: top; }
-th { font-weight: normal; text-align: left; }
-
-.nav td { text-align: center; width: 25%; }
+/* ---- nav ---- */
+.nav { margin: 0; font-size: 20px; }
 .nav a { text-decoration: none; }
 .nav a:hover { text-decoration: underline; }
+.nav span { display: inline-block; margin: 0 10px; font-size: 16px; }
 
-.tracks .t { text-align: left; width: 160px; font-size: 22px; }
-.tracks .t small { font-size: 14px; }
-.tracks .p { padding: 0; }
-.tracks iframe {
+/* ---- tracks ---- */
+.track { margin: 0 0 28px; }
+.track:last-of-type { margin-bottom: 0; }
+.track .title { margin: 0 0 6px; font-size: 28px; }
+.track iframe {
   display: block;
   width: 100%;
   height: 120px;
@@ -110,18 +93,39 @@ th { font-weight: normal; text-align: left; }
   filter: invert(1) hue-rotate(180deg);
 }
 
-img { max-width: 100%; height: auto; display: block; margin: 0 auto 40px; }
-.frame { border: 5px ridge #c4c9d3; box-sizing: border-box; }
-.portrait { width: 360px; }
+/* ---- portrait, framed in stars ---- */
+img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.portrait {
+  width: 360px;
+  box-sizing: border-box;
+  border: 34px solid transparent;
+  border-image: url("assets/stars-frame.svg") 100 round;
+  margin-bottom: 20px;
+}
 
-.big { font-size: 34px; margin: 0 0 60px; }
-.foot { font-size: 14px; letter-spacing: 0.2em; }
+.big { font-size: 34px; margin: 0; }
+.foot { font-size: 14px; letter-spacing: 0.25em; margin: 0; }
+
+/* ---- pinwheel stars sliding across the whole screen, behind everything ---- */
+.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.stars span {
+  position: absolute;
+  left: -60px;
+  line-height: 1;
+  animation: slide linear infinite;
+}
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 120px)); }
+}
+@media (prefers-reduced-motion: reduce) { .stars span { animation: none; } }
 
 @media (max-width: 600px) {
-  body { font-size: 18px; margin-top: 24px; }
-  .wordmark { font-size: 52px; }
-  .nav td { font-size: 13px; padding: 6px 2px; }
-  .tracks .t { width: 100px; font-size: 18px; }
-  .big { font-size: 24px; }
-  .portrait { width: 100%; }
+  body { font-size: 18px; margin-top: 28px; }
+  .wordmark { font-size: 54px; }
+  .nav { font-size: 15px; }
+  .nav span { margin: 0 4px; font-size: 12px; }
+  .track .title { font-size: 22px; }
+  .big { font-size: 22px; }
+  .portrait { width: 100%; border-width: 26px; }
 }
