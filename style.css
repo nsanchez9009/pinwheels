@@ -24,7 +24,7 @@ body {
 
 /* ---- chrome ---- */
 /* silver, one full sweep per element (headings, stars) */
-.chrome, .wordmark, .stars .silver, .foot, .nav span {
+.chrome, .stars .silver, .foot, .nav span {
   color: transparent;
   background: linear-gradient(180deg,
     #ffffff 0%, #cfd5df 35%, #6b7280 49%, #2a2e36 50%, #e8ebf0 52%, #9aa1ad 75%, #ffffff 100%);
@@ -51,21 +51,21 @@ a { text-decoration: underline; text-decoration-color: #9765d0; }
 a:hover { text-decoration-color: #fff; }
 
 /* the emboss */
-h1, p, .stars span, .portrait {
+p, .stars span, .portrait {
   filter: drop-shadow(0 1px 0 rgba(255,255,255,0.7)) drop-shadow(0 -1px 0 rgba(0,0,0,0.95));
 }
 
-.wordmark {
-  font-family: "OptimusPrinceps", "Times New Roman", serif;
-  font-weight: normal;
-  font-size: 104px;
-  line-height: 1;
-  margin: 0 0 24px;
-  letter-spacing: 0.04em;
-  /* emboss + glintstone glow */
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.75)) drop-shadow(0 -1px 0 rgba(0,0,0,0.95))
-          drop-shadow(0 0 26px rgba(96,140,255,0.5));
+.wordmark { margin: 0 0 10px; }
+.wordmark svg {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
 }
+.wordmark .spin { animation: spin 14s linear infinite; }
+@keyframes spin { to { rotate: 360deg; } }
 
 /* ---- star rules instead of lines ---- */
 hr {
@@ -96,7 +96,7 @@ hr {
 /* ---- portrait, framed in stars ---- */
 img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .portrait {
-  width: 360px;
+  width: 300px;
   box-sizing: border-box;
   border: 34px solid transparent;
   border-image: url("assets/stars-frame.svg") 100 round;
@@ -122,7 +122,6 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
 @media (max-width: 600px) {
   body { font-size: 18px; margin-top: 28px; }
-  .wordmark { font-size: 54px; }
   .nav { font-size: 15px; }
   .nav span { margin: 0 4px; font-size: 12px; }
   .track .title { font-size: 22px; }
