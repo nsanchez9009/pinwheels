@@ -8,7 +8,7 @@
 <meta property="og:title" content="PINWHEELS">
 <meta property="og:image" content="assets/portrait.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -16,16 +16,13 @@
 
 <h1 class="wordmark"><svg viewBox="0 0 1227 430" role="img" aria-label="Pinwheels">
 <defs><linearGradient id="env" gradientUnits="userSpaceOnUse" x1="0" y1="55" x2="0" y2="395">
-<stop offset="0" stop-color="#ffffff"/><stop offset=".12" stop-color="#dce8f7"/>
-<stop offset=".30" stop-color="#93a8c0"/><stop offset=".46" stop-color="#4d5a6b"/>
-<stop offset=".499" stop-color="#20262f"/><stop offset=".501" stop-color="#c9d4e0"/>
-<stop offset=".55" stop-color="#ffffff"/><stop offset=".70" stop-color="#8e9aa8"/>
-<stop offset=".86" stop-color="#5d6774"/><stop offset="1" stop-color="#aab4c1"/>
-</linearGradient><linearGradient id="pur" gradientUnits="userSpaceOnUse" x1="0" y1="55" x2="0" y2="395">
-<stop offset="0" stop-color="#ffffff"/><stop offset=".30" stop-color="#c9a6ff"/>
-<stop offset=".499" stop-color="#2a1a45"/><stop offset=".501" stop-color="#e5d2ff"/>
-<stop offset=".70" stop-color="#9765d0"/><stop offset="1" stop-color="#6d4aa0"/>
-</linearGradient><filter id="fb" x="-12%" y="-30%" width="124%" height="170%"
+<stop offset="0" stop-color="#ffffff"/><stop offset=".14" stop-color="#dfe9f6"/>
+<stop offset=".33" stop-color="#94a6bb"/><stop offset=".47" stop-color="#5d6b7c"/>
+<stop offset=".60" stop-color="#9fadbe"/><stop offset=".78" stop-color="#eef3fa"/>
+<stop offset=".92" stop-color="#b6c1cf"/><stop offset="1" stop-color="#dee6ef"/></linearGradient><linearGradient id="pur" gradientUnits="userSpaceOnUse" x1="0" y1="55" x2="0" y2="395">
+<stop offset="0" stop-color="#ffffff"/><stop offset=".28" stop-color="#d3b6ff"/>
+<stop offset=".52" stop-color="#8f60cc"/><stop offset=".72" stop-color="#c7a4f0"/>
+<stop offset="1" stop-color="#f3eaff"/></linearGradient><filter id="fb" x="-12%" y="-30%" width="124%" height="170%"
  color-interpolation-filters="sRGB">
 <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="bump"/>
 <feDiffuseLighting in="bump" surfaceScale="13" diffuseConstant="1.15"
@@ -69,27 +66,6 @@
 
 <hr>
 
-<!-- To add a track: copy one <div class="track"> ... </div> block, change the title,
-     the link, and the number after tracks%2F in the iframe src. Get that number from
-     https://soundcloud.com/oembed?format=json&url=<the track url> -->
-
-<div class="track">
-<p class="title"><a href="https://soundcloud.com/pinwheelsmusic/re-spring">re:spring</a></p>
-<iframe title="re:spring" loading="lazy" allow="autoplay" scrolling="no" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2393258067&color=%239765d0&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false"></iframe>
-</div>
-
-<div class="track">
-<p class="title"><a href="https://soundcloud.com/pinwheelsmusic/dop100">dop100</a></p>
-<iframe title="dop100" loading="lazy" allow="autoplay" scrolling="no" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2391501213&color=%239765d0&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false"></iframe>
-</div>
-
-<div class="track">
-<p class="title"><a href="https://soundcloud.com/pinwheelsmusic/finally">finally</a></p>
-<iframe title="finally" loading="lazy" allow="autoplay" scrolling="no" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2390971722&color=%239765d0&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false"></iframe>
-</div>
-
-<hr>
-
 <p class="big"><a href="mailto:pinwheelsmusic2@gmail.com">pinwheelsmusic2@gmail.com</a></p>
 
 <hr>
@@ -102,7 +78,7 @@
   var box = document.querySelector('.stars'), glyphs = '✵✶✷✸✹', out = '';
   for (var i = 0; i < 48; i++) {
     var size = 14 + Math.random() * 34, dur = 50 + Math.random() * 110;
-    out += '<span class="' + (Math.random() < 0.3 ? 'purple' : 'silver') + '" style="top:' + Math.random() * 100 + '%;font-size:' + size.toFixed(0) + 'px;animation-duration:' + dur.toFixed(0) + 's;animation-delay:-' + (Math.random() * dur).toFixed(0) + 's">' + glyphs[i % 5] + '</span>';
+    out += '<span class="' + (Math.random() < 0.3 ? 'purple' : 'silver') + '" style="top:' + Math.random() * 100 + '%;--x:' + Math.random() * 96 + '%;font-size:' + size.toFixed(0) + 'px;animation-duration:' + dur.toFixed(0) + 's;animation-delay:-' + (Math.random() * dur).toFixed(0) + 's">' + glyphs[i % 5] + '</span>';
   }
   box.innerHTML = out;
 })();

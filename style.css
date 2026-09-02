@@ -76,18 +76,6 @@ hr {
 .nav a:hover { text-decoration: underline; }
 .nav span { display: inline-block; margin: 0 10px; font-size: 16px; }
 
-/* ---- tracks ---- */
-.track { margin: 0 0 28px; }
-.track:last-of-type { margin-bottom: 0; }
-.track .title { margin: 0 0 6px; font-size: 28px; }
-.track iframe {
-  display: block;
-  width: 100%;
-  height: 120px;
-  background: #fff;
-  filter: invert(1) hue-rotate(180deg);
-}
-
 /* ---- portrait, framed in stars ---- */
 img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .portrait {
@@ -102,7 +90,8 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .foot { font-size: 14px; letter-spacing: 0.25em; margin: 0; }
 
 /* ---- pinwheel stars sliding across the whole screen, behind everything ---- */
-.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+body > :not(.stars) { position: relative; z-index: 1; }
 .stars span {
   position: absolute;
   left: -60px;
@@ -113,13 +102,12 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
   from { transform: translateX(0); }
   to   { transform: translateX(calc(100vw + 120px)); }
 }
-@media (prefers-reduced-motion: reduce) { .stars span { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .stars span { animation: none; left: var(--x); } }
 
 @media (max-width: 600px) {
   body { font-size: 18px; margin-top: 28px; }
   .nav { font-size: 15px; }
   .nav span { margin: 0 4px; font-size: 12px; }
-  .track .title { font-size: 22px; }
   .big { font-size: 22px; }
   .portrait { width: 100%; border-width: 26px; }
 }
