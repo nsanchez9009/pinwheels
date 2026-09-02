@@ -11,15 +11,11 @@ assets/         font, images, favicon
 
 ## Editing
 
-**Links (Spotify / Apple / SoundCloud / Instagram)**: in `index.html`, find the
-`LINKS` section and change the `href="..."` on each line.
+**Links (Spotify / Apple / SoundCloud / IG)**: the first `<table class="nav">` in `index.html`.
 
-**Adding a track**: in the `RECORDINGS` section, copy one whole `<li class="track"> ... </li>`
-block and paste it above the others. Change:
-
-1. the number (`001`), title, and date
-2. the `href` of the `SC →` link
-3. the track id in the iframe `src` (`api.soundcloud.com%2Ftracks%2F**2393258067**`)
+**Adding a track**: in `<table class="tracks">`, copy one `<tr> ... </tr>` block and paste it
+above the others. Change the title, the year, the link, and the track id in the iframe
+`src` (`api.soundcloud.com%2Ftracks%2F**2393258067**`).
 
 To get a track id, open this in a browser and copy the number after `tracks/`:
 
@@ -27,9 +23,7 @@ To get a track id, open this in a browser and copy the number after `tracks/`:
 https://soundcloud.com/oembed?format=json&url=https://soundcloud.com/pinwheelsmusic/TRACK-SLUG
 ```
 
-Also bump the `3 ITEMS · UPDATED ...` line if you care.
-
-**Colors**: top of `style.css`, the `:root { ... }` block. `--violet` is the link color.
+**Colors**: `style.css`. Link color is `#9765d0`, search and replace it.
 
 **Images**: drop replacements into `assets/` with the same file names
 (`irithyll.jpg` 1920×1080, `irithyll-960.jpg` 960×540, `portrait.jpg` 800×800).
