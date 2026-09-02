@@ -1,13 +1,15 @@
-/* PINWHEELS. Black page, Times New Roman, one column. */
+/* PINWHEELS. Black page, Times New Roman, one column.
+   All text is chrome: a banded metal gradient clipped to the letters,
+   with a light/dark 1px offset under it for the emboss. */
 
 @font-face {
   font-family: "OptimusPrinceps";
   src: url("assets/OptimusPrinceps.ttf");
 }
 
+html { background: #000; }
+
 body {
-  background: #000;
-  color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   line-height: 1.3;
@@ -15,10 +17,34 @@ body {
   margin: 40px auto 80px;
   padding: 0 16px;
   text-align: center;
+  color: #d9dde6;
 }
 
-a { color: #9765d0; }
-a:hover { color: #fff; }
+/* silver: repeats every 26px so every line of text gets the banding */
+p, th, td, .silver {
+  color: transparent;
+  background: repeating-linear-gradient(180deg,
+    #ffffff 0px, #d9dde6 5px, #7c8290 11px, #f6f7fa 13px, #a3a8b3 19px, #ffffff 26px);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* the emboss */
+h1, marquee, table, p, .frame {
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.55)) drop-shadow(0 -1px 0 rgba(0,0,0,0.9));
+}
+
+/* purple chrome for links */
+a {
+  color: transparent;
+  background: repeating-linear-gradient(180deg,
+    #f1e6ff 0px, #c9a6ff 5px, #5b3a86 11px, #e5d2ff 13px, #9765d0 19px, #f1e6ff 26px);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-decoration: underline;
+  text-decoration-color: #9765d0;
+}
+a:hover { text-decoration-color: #fff; }
 
 .wordmark {
   font-family: "OptimusPrinceps", "Times New Roman", serif;
@@ -27,22 +53,33 @@ a:hover { color: #fff; }
   line-height: 1;
   margin: 0 0 8px;
   letter-spacing: 0.04em;
+  background: linear-gradient(180deg,
+    #ffffff 0%, #e6e9f0 22%, #808693 46%, #fbfbfd 50%, #9aa0ac 68%, #dfe3ea 84%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* glintstone */
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.6)) drop-shadow(0 -1px 0 rgba(0,0,0,0.9))
+          drop-shadow(0 0 22px rgba(96,140,255,0.45));
 }
 
-marquee {
-  color: #9765d0;
-  font-style: italic;
-  margin-bottom: 40px;
+marquee { font-style: italic; margin-bottom: 40px; }
+marquee span {
+  color: transparent;
+  background: repeating-linear-gradient(180deg,
+    #f1e6ff 0px, #c9a6ff 5px, #5b3a86 11px, #e5d2ff 13px, #9765d0 19px, #f1e6ff 26px);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 table {
   width: 100%;
-  border-color: #fff;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 3px ridge #c4c9d3;
   margin: 0 0 40px;
   font-size: 16px;
 }
-td, th { border: 1px solid #fff; vertical-align: top; }
+td, th { border: 2px ridge #c4c9d3; vertical-align: top; }
 th { font-weight: normal; text-align: left; }
 
 .nav td { text-align: center; width: 25%; }
@@ -50,7 +87,7 @@ th { font-weight: normal; text-align: left; }
 .nav a:hover { text-decoration: underline; }
 
 .tracks .t { text-align: left; width: 160px; font-size: 22px; }
-.tracks .t small { font-size: 14px; color: #999; }
+.tracks .t small { font-size: 14px; }
 .tracks .p { padding: 0; }
 .tracks iframe {
   display: block;
@@ -61,10 +98,11 @@ th { font-weight: normal; text-align: left; }
 }
 
 img { max-width: 100%; height: auto; display: block; margin: 0 auto 40px; }
+.frame { border: 5px ridge #c4c9d3; box-sizing: border-box; }
 .portrait { width: 360px; }
 
 .big { font-size: 34px; margin: 0 0 60px; }
-.foot { font-size: 14px; color: #999; }
+.foot { font-size: 14px; letter-spacing: 0.2em; }
 
 @media (max-width: 600px) {
   body { font-size: 18px; margin-top: 24px; }
