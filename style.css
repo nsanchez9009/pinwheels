@@ -45,10 +45,12 @@ a, .stars .purple {
 a { text-decoration: underline; text-decoration-color: #9765d0; }
 a:hover { text-decoration-color: #fff; }
 
-/* the emboss */
-p, .stars span, .portrait {
-  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.7)) drop-shadow(0 -1px 0 rgba(0,0,0,0.95));
-}
+/* real 3D metal: the SVG filters at the top of index.html light a height map
+   built from each element's own alpha, so the shading follows the letterforms */
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.nav, .foot { filter: url(#mtl); }
+.big { filter: url(#mtlbig); }
+.portrait { filter: drop-shadow(0 1px 0 rgba(255,255,255,.5)) drop-shadow(0 -1px 0 rgba(0,0,0,.9)); }
 
 .wordmark { margin: 0 0 10px; }
 .wordmark svg {
@@ -90,7 +92,8 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .foot { font-size: 14px; letter-spacing: 0.25em; margin: 0; }
 
 /* ---- pinwheel stars sliding across the whole screen, behind everything ---- */
-.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+  filter: url(#mtl); }
 body > :not(.stars) { position: relative; z-index: 1; }
 .stars span {
   position: absolute;

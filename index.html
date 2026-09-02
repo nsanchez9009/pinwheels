@@ -8,9 +8,34 @@
 <meta property="og:title" content="PINWHEELS">
 <meta property="og:image" content="assets/portrait.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
+
+<svg class="defs" aria-hidden="true" width="0" height="0" focusable="false">
+<filter id="mtl" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceAlpha" stdDeviation="1" result="b"/>
+<feDiffuseLighting in="b" surfaceScale="3" diffuseConstant="1.15" lighting-color="#ffffff" result="d">
+<feDistantLight azimuth="228" elevation="58"/></feDiffuseLighting>
+<feComposite in="d" in2="SourceAlpha" operator="in" result="dc"/>
+<feSpecularLighting in="b" surfaceScale="3" specularConstant="1.6" specularExponent="28"
+ lighting-color="#ffffff" result="s"><feDistantLight azimuth="228" elevation="58"/></feSpecularLighting>
+<feComposite in="s" in2="SourceAlpha" operator="in" result="sc"/>
+<feBlend in="SourceGraphic" in2="dc" mode="multiply" result="body"/>
+<feBlend in="body" in2="sc" mode="screen"/>
+</filter>
+<filter id="mtlbig" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="b"/>
+<feDiffuseLighting in="b" surfaceScale="4.5" diffuseConstant="1.15" lighting-color="#ffffff" result="d">
+<feDistantLight azimuth="228" elevation="58"/></feDiffuseLighting>
+<feComposite in="d" in2="SourceAlpha" operator="in" result="dc"/>
+<feSpecularLighting in="b" surfaceScale="4.5" specularConstant="1.7" specularExponent="30"
+ lighting-color="#ffffff" result="s"><feDistantLight azimuth="228" elevation="58"/></feSpecularLighting>
+<feComposite in="s" in2="SourceAlpha" operator="in" result="sc"/>
+<feBlend in="SourceGraphic" in2="dc" mode="multiply" result="body"/>
+<feBlend in="body" in2="sc" mode="screen"/>
+</filter>
+</svg>
 
 <div class="stars" aria-hidden="true"></div>
 
@@ -76,7 +101,8 @@
 // scatter pinwheel stars across the screen; each one slides at its own speed
 (function () {
   var box = document.querySelector('.stars'), glyphs = '✵✶✷✸✹', out = '';
-  for (var i = 0; i < 48; i++) {
+  var n = Math.min(120, Math.round(26 + innerWidth * innerHeight / 20000));
+  for (var i = 0; i < n; i++) {
     var size = 14 + Math.random() * 34, dur = 50 + Math.random() * 110;
     out += '<span class="' + (Math.random() < 0.3 ? 'purple' : 'silver') + '" style="top:' + Math.random() * 100 + '%;--x:' + Math.random() * 96 + '%;font-size:' + size.toFixed(0) + 'px;animation-duration:' + dur.toFixed(0) + 's;animation-delay:-' + (Math.random() * dur).toFixed(0) + 's">' + glyphs[i % 5] + '</span>';
   }
