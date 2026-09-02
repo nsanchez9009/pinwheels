@@ -79,16 +79,21 @@ a:focus-visible { outline: none; }
 /* the highlight sweep rides on its own layer; animating the gradient inside the
    SVG instead would force the lighting filter to re-render every frame */
 .wordmark .glint { animation: sweep 7s linear infinite; will-change: transform; }
-@keyframes sweep { from { transform: translateX(-45%); } to { transform: translateX(145%); } }
+@keyframes sweep { from { transform: translateX(0); } to { transform: translateX(1620px); } }
 .wordmark svg {
   display: block;
   width: 100%;
   max-width: 620px;
   height: auto;
   margin: 0 auto;
-  overflow: visible;
 }
-.wordmark .spin { animation: spin 14s linear infinite; }
+.wordmark .spin {
+  /* without these the rotation origin is the middle of the viewBox and the
+     star swings around the whole canvas instead of spinning in place */
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 14s linear infinite;
+}
 @keyframes spin { to { rotate: 360deg; } }
 
 /* ---- star rules instead of lines ---- */
