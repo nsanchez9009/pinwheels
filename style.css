@@ -10,6 +10,7 @@
 html { background: #000; }
 
 body {
+  position: relative;
   font-family: "Times New Roman", Times, serif;
   font-size: 22px;
   line-height: 1.3;
@@ -30,7 +31,7 @@ p, th, td, .silver {
 }
 
 /* the emboss */
-h1, marquee, table, p, .frame {
+h1, table, p, .frame, .stars span {
   filter: drop-shadow(0 1px 0 rgba(255,255,255,0.55)) drop-shadow(0 -1px 0 rgba(0,0,0,0.9));
 }
 
@@ -62,14 +63,26 @@ a:hover { text-decoration-color: #fff; }
           drop-shadow(0 0 22px rgba(96,140,255,0.45));
 }
 
-marquee { font-style: italic; margin-bottom: 40px; }
-marquee span {
+/* pinwheel stars sliding across the whole screen, behind everything */
+.stars { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.stars span {
+  position: absolute;
+  left: -60px;
+  line-height: 1;
+  animation: slide linear infinite;
+}
+.stars .purple {
   color: transparent;
   background: repeating-linear-gradient(180deg,
     #f1e6ff 0px, #c9a6ff 5px, #5b3a86 11px, #e5d2ff 13px, #9765d0 19px, #f1e6ff 26px);
   -webkit-background-clip: text;
   background-clip: text;
 }
+@keyframes slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 120px)); }
+}
+@media (prefers-reduced-motion: reduce) { .stars span { animation: none; left: auto; right: auto; } }
 
 table {
   width: 100%;

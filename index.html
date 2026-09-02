@@ -8,13 +8,13 @@
 <meta property="og:title" content="PINWHEELS">
 <meta property="og:image" content="assets/irithyll-960.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
-<h1 class="wordmark">PINWHEELS</h1>
+<div class="stars" aria-hidden="true"></div>
 
-<marquee scrollamount="4"><span>21st century alchemy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Diego, CA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21st century alchemy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Diego, CA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21st century alchemy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; San Diego, CA</span></marquee>
+<h1 class="wordmark">PINWHEELS</h1>
 
 <table class="nav" border="1" cellspacing="0" cellpadding="8">
 <tr>
@@ -57,5 +57,16 @@
 
 <p class="foot">PINWHEEL</p>
 
+<script>
+// scatter pinwheel stars across the screen; each one slides at its own speed
+(function () {
+  var box = document.querySelector('.stars'), glyphs = '\u2735\u2736\u2737\u2738\u2739', out = '';
+  for (var i = 0; i < 48; i++) {
+    var size = 12 + Math.random() * 30, dur = 50 + Math.random() * 110;
+    out += '<span class="' + (Math.random() < 0.3 ? 'purple' : 'silver') + '" style="top:' + Math.random() * 100 + '%;font-size:' + size.toFixed(0) + 'px;animation-duration:' + dur.toFixed(0) + 's;animation-delay:-' + (Math.random() * dur).toFixed(0) + 's">' + glyphs[i % 5] + '</span>';
+  }
+  box.innerHTML = out;
+})();
+</script>
 </body>
 </html>
