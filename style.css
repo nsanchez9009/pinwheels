@@ -3,11 +3,6 @@
    letters, and a 1px light/dark offset under it for the emboss.
    Sections are divided by rows of pinwheel stars (assets/stars-rule.svg). */
 
-@font-face {
-  font-family: "OptimusPrinceps";
-  src: url("assets/OptimusPrinceps.ttf");
-}
-
 html { background: #000; }
 
 body {
@@ -59,7 +54,7 @@ p, .stars span, .portrait {
 .wordmark svg {
   display: block;
   width: 100%;
-  max-width: 600px;
+  max-width: 620px;
   height: auto;
   margin: 0 auto;
   overflow: visible;
