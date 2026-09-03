@@ -166,6 +166,9 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
   body { font-size: 18px; margin-top: 28px; }
   .nav { font-size: 15px; }
   .nav span { margin: 0 4px; font-size: 12px; }
+  /* INSTAGRAM makes the row too long for one phone line; break it 2+2
+     at the middle separator instead of letting a star dangle. */
+  .nav span.brk { display: block; margin: 0; font-size: 0; line-height: 0; }
   .big { font-size: 22px; }
   .portrait { width: 100%; border-width: 26px; }
 }
