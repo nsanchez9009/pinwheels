@@ -113,7 +113,7 @@ hr {
 /* ---- portrait, framed in stars ---- */
 img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 .portrait {
-  width: 300px;
+  width: 280px;
   box-sizing: border-box;
   border: 34px solid transparent;
   border-image: url("assets/stars-frame.svg") 100 round;
@@ -170,5 +170,5 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
      at the middle separator instead of letting a star dangle. */
   .nav span.brk { display: block; margin: 0; font-size: 0; line-height: 0; }
   .big { font-size: 22px; }
-  .portrait { width: 100%; border-width: 26px; }
+  .portrait { width: 76%; border-width: 22px; }
 }
