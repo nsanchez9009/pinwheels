@@ -13,6 +13,18 @@
 
 html { background: #000; }
 
+/* the outline lockup, stretched to fill the window whatever its shape */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background: url("assets/bg.jpg") center / 100% 100% no-repeat;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+/* page content sits above the background and the orbiting stars */
+body > :not(.stars):not(.defs) { position: relative; z-index: 1; }
+
 body {
   position: relative;
   font-family: "Times New Roman", Times, serif;
