@@ -16,10 +16,9 @@ html { background: #000; }
 /* the outline lockup, stretched to fill the window whatever its shape */
 body::before {
   content: "";
-  position: fixed; inset: -8px;   /* bleed so the blur has no soft edge */
+  position: fixed; inset: 0;
   background: url("assets/bg.jpg") center / 100% 100% no-repeat;
-  filter: blur(2px);
-  opacity: .32;
+  opacity: .2;
   pointer-events: none;
   z-index: 0;
 }
