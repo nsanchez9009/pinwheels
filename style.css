@@ -60,7 +60,7 @@ a::after {
   left: 0; right: 0; bottom: -.42em;
   height: .40em;
   min-height: 9px;
-  background: var(--star-s1) repeat-x center / auto 100%;
+  background: var(--star-s1) center / auto 100% space;
   opacity: 0;
   transform: scaleX(.25);
   transition: opacity .2s ease, transform .28s cubic-bezier(.2,.8,.3,1);
@@ -75,7 +75,7 @@ a:focus-visible { outline: none; }
 .big a { filter: url(#mtlbig); }
 .portrait { filter: drop-shadow(0 1px 0 rgba(255,255,255,.5)) drop-shadow(0 -1px 0 rgba(0,0,0,.9)); }
 
-.wordmark { margin: 0 0 10px; }
+.wordmark { margin: 0; }
 /* the highlight sweep rides on its own layer; animating the gradient inside the
    SVG instead would force the lighting filter to re-render every frame */
 .wordmark .glint { animation: sweep 7s linear infinite; will-change: transform; }
@@ -96,16 +96,14 @@ a:focus-visible { outline: none; }
 }
 @keyframes spin { to { rotate: 360deg; } }
 
-/* ---- star rules instead of lines ---- */
-hr {
-  border: 0;
-  height: 22px;
-  margin: 28px auto;
-  background: url("assets/stars-rule.svg") repeat-x center / auto 22px;
-}
+/* ---- sections are separated by space alone ---- */
+.wordmark { margin-bottom: 36px; }
+.nav { margin-bottom: 44px; }
+.portrait { margin-bottom: 48px; }
+.big { margin-bottom: 40px; }
 
 /* ---- nav ---- */
-.nav { margin: 0; font-size: 20px; }
+.nav { margin-top: 0; font-size: 20px; line-height: 2.1; }
 .nav a { text-decoration: none; white-space: nowrap; }
 .nav a:hover { text-decoration: underline; }
 .nav span { display: inline-block; margin: 0 10px; font-size: 16px; }
@@ -120,10 +118,9 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
   box-sizing: border-box;
   border: 34px solid transparent;
   border-image: url("assets/stars-frame.svg") 100 round;
-  margin-bottom: 20px;
 }
 
-.big { font-size: 34px; margin: 0; }
+.big { font-size: 34px; margin-top: 0; }
 .foot { font-size: 14px; letter-spacing: 0.25em; margin: 0; }
 
 /* ---- pinwheel stars: out of the centre, orbiting the page ----
@@ -151,15 +148,15 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
 
 @keyframes orbit {
   0%   { transform: translate(-50%,-50%) rotate(var(--a)) translateX(0); opacity: 0; }
-  12%  { opacity: .95; }
-  80%  { opacity: .95; }
+  12%  { opacity: .4; }
+  80%  { opacity: .4; }
   100% { transform: translate(-50%,-50%) rotate(calc(var(--a) + var(--turn))) translateX(var(--r));
          opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .wordmark .glint { animation: none; }
   .stars i {
-    animation: none; opacity: .9;
+    animation: none; opacity: .4;
     transform: translate(-50%,-50%) rotate(var(--a)) translateX(var(--rs));
   }
 }
@@ -170,7 +167,10 @@ img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
   .nav { font-size: 15px; }
   .nav span { margin: 0 4px; font-size: 12px; }
   .big { font-size: 22px; }
-  .portrait { width: 76%; border-width: 22px; }
+  .portrait { width: 76%; border-width: 22px; margin-bottom: 36px; }
+  .wordmark { margin-bottom: 24px; }
+  .nav { margin-bottom: 32px; }
+  .big { margin-bottom: 30px; }
 }
 @media (max-width: 350px) {
   .nav { font-size: 13px; }
